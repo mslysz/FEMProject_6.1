@@ -13,7 +13,6 @@ main {
 .header {
   display: flex;
   flex-direction: column;
-
   width: 100%;
   height: 100vh;
   background-image: url(/images/mobile/image-header.jpg);
@@ -25,8 +24,66 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 3em;
+  &__list {
+    position: relative;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  &__list::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 19px 0 20px 36px;
+    border-color: transparent transparent transparent $white;
+    top: -20px;
+    right: -10px;
+    transform: rotate(300deg);
+  }
+  &__item {
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+  &__link {
+    display: block;
+    text-decoration: none;
+    margin: 0 2em;
+    font-size: 1.2rem;
+    color: $dark-grayish-blue;
+    font-family: $barlow-family;
+    padding: 0.4em;
+    cursor: pointer;
+  }
+  &__button {
+    padding: 1em 2em;
+    width: fit-content;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    background-color: $yellow;
+    color: $very-dark-blue;
+    font-family: $fraunces-family;
+    font-weight: 900;
+    text-align: center;
+    cursor: pointer;
+  }
 }
-
+.active {
+  overflow: visible;
+  max-height: 300px;
+  padding: 5em 0;
+}
+.burger-button {
+  cursor: pointer;
+}
 .hero {
   &__title {
     padding-top: 1em;

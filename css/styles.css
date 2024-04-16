@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
 /*
   1. Use a more-intuitive box-sizing model.
@@ -69,6 +70,10 @@ h6 {
   isolation: isolate;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-size: 10px;
 }
@@ -93,6 +98,11 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+@media (min-width: 768px) {
+  .header {
+    background-image: url(/images/desktop/image-header.jpg);
+  }
 }
 
 .navigation {
@@ -201,7 +211,29 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
+  width: 100%;
+  padding-bottom: 2em;
+}
+@media (min-width: 768px) {
+  .intro-section {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 768px) {
+  .intro-section--reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
 }
 .intro-section__description {
   display: -webkit-box;
@@ -211,8 +243,17 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
   padding: 2em;
+}
+@media (min-width: 768px) {
+  .intro-section__description {
+    width: 50%;
+    padding: 0;
+  }
 }
 .intro-section__description-title {
   font-size: 2rem;
@@ -221,6 +262,13 @@ main {
   padding: 1em;
   color: hsl(212, 27%, 19%);
 }
+@media (min-width: 768px) {
+  .intro-section__description-title {
+    font-size: 2.6rem;
+    padding: 0;
+    text-align: left;
+  }
+}
 .intro-section__description-text {
   font-size: 1rem;
   font-family: "Barlow", sans-serif;
@@ -228,15 +276,64 @@ main {
   color: hsl(232, 10%, 55%);
   text-align: center;
 }
+@media (min-width: 768px) {
+  .intro-section__description-text {
+    font-size: 1.2rem;
+    text-align: left;
+    padding: 0;
+  }
+}
 .intro-section__link {
+  text-align: center;
   font-size: 1rem;
   font-weight: bold;
   font-family: "Fraunces";
   text-decoration-color: hsl(51, 100%, 49%);
-  text-decoration-thickness: 6px;
+  text-decoration-thickness: 4px;
   text-align: center;
   color: hsl(212, 27%, 19%);
-  padding-bottom: 4em;
+}
+.intro-section__link--red {
+  text-decoration-color: hsl(7, 99%, 70%);
+}
+.intro-section__link:hover {
+  text-decoration-thickness: 7px;
+}
+
+.intro-link-container {
+  margin: 4em 0 1em 0;
+}
+@media (min-width: 768px) {
+  .intro-link-container {
+    -ms-flex-item-align: start;
+        align-self: start;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .picture-container {
+    width: 50%;
+    padding: 0;
+  }
+}
+
+.egg-image {
+  display: block;
+}
+@media (min-width: 768px) {
+  .egg-image {
+    content: url("/images/desktop/image-transform.jpg");
+  }
+}
+
+.glass-image {
+  display: block;
+}
+@media (min-width: 768px) {
+  .glass-image {
+    content: url("/images/desktop/image-stand-out.jpg");
+  }
 }
 
 .showcase-container {
@@ -277,9 +374,19 @@ main {
 .graphic-background {
   background-image: url(/images/mobile/image-graphic-design.jpg);
 }
+@media (min-width: 768px) {
+  .graphic-background {
+    background-image: url(/images/desktop/image-graphic-design.jpg);
+  }
+}
 
 .photo-background {
   background-image: url(/images/mobile/image-photography.jpg);
+}
+@media (min-width: 768px) {
+  .photo-background {
+    background-image: url(/images/desktop/image-photography.jpg);
+  }
 }
 
 .testimonials-section__title {
@@ -329,12 +436,57 @@ main {
   padding-bottom: 2em;
 }
 
-.paintings-section {
+.gallery-section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-gap: 0;
+  width: 100%;
+  height: auto;
+}
+
+/* Dla każdego obrazka */
+.gallery-section__firstImg,
+.gallery-section__secondImg,
+.gallery-section__thirdImg,
+.gallery-section__fourthImg {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+@media (min-width: 455px) {
+  .gallery-section__firstImg,
+  .gallery-section__secondImg,
+  .gallery-section__thirdImg,
+  .gallery-section__fourthImg {
+    height: 350px;
+  }
+}
+
+/* Określenie pozycji obrazków */
+.gallery-section__firstImg {
+  background-image: url(/images/mobile/image-gallery-milkbottles.jpg);
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.gallery-section__secondImg {
+  background-image: url(/images/mobile/image-gallery-orange.jpg);
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.gallery-section__thirdImg {
+  background-image: url(/images/mobile/image-gallery-cone.jpg);
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.gallery-section__fourthImg {
+  background-image: url(/images/mobile/image-gallery-sugar-cubes.jpg);
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .footer {
@@ -388,4 +540,5 @@ main {
           justify-content: space-between;
   width: 40%;
   padding-top: 3em;
+  cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */

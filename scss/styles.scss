@@ -2,6 +2,9 @@
 @import 'fonts';
 @import 'reset';
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-size: 10px;
 }
@@ -10,6 +13,8 @@ main {
   margin: 0 auto;
   width: 100%;
 }
+//HEADER SECTION
+
 .header {
   display: flex;
   flex-direction: column;
@@ -19,6 +24,9 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  @media (min-width: 768px) {
+    background-image: url(/images/desktop/image-header.jpg);
+  }
 }
 .navigation {
   display: flex;
@@ -99,16 +107,34 @@ main {
     margin: 2em auto;
   }
 }
+//INTRO SECTION
+
 .intro-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100%;
-
+  width: 100%;
+  padding-bottom: 2em;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding-bottom: 0;
+  }
+  &--reverse {
+    @media (min-width: 768px) {
+      flex-direction: row-reverse;
+    }
+  }
   &__description {
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 100%;
     padding: 2em;
+    @media (min-width: 768px) {
+      width: 50%;
+      padding: 0;
+    }
   }
   &__description-title {
     font-size: 2rem;
@@ -116,6 +142,11 @@ main {
     font-family: $fraunces-family;
     padding: 1em;
     color: $very-dark-blue;
+    @media (min-width: 768px) {
+      font-size: 2.6rem;
+      padding: 0;
+      text-align: left;
+    }
   }
   &__description-text {
     font-size: 1rem;
@@ -123,18 +154,57 @@ main {
     font-weight: 600;
     color: $dark-grayish-blue;
     text-align: center;
+    @media (min-width: 768px) {
+      font-size: 1.2rem;
+      text-align: left;
+      padding: 0;
+    }
   }
   &__link {
+    text-align: center;
     font-size: 1rem;
     font-weight: bold;
     font-family: $fraunces-family;
     text-decoration-color: $yellow;
-    text-decoration-thickness: 6px;
+    text-decoration-thickness: 4px;
     text-align: center;
     color: $very-dark-blue;
-    padding-bottom: 4em;
+
+    &--red {
+      text-decoration-color: $soft-red;
+    }
+    &:hover {
+      text-decoration-thickness: 7px;
+    }
   }
 }
+.intro-link-container {
+  margin: 4em 0 1em 0;
+  @media (min-width: 768px) {
+    align-self: start;
+    margin-left: 0;
+  }
+}
+.picture-container {
+  @media (min-width: 768px) {
+    width: 50%;
+    padding: 0;
+  }
+}
+.egg-image {
+  display: block;
+  @media (min-width: 768px) {
+    content: url('/images/desktop/image-transform.jpg');
+  }
+}
+.glass-image {
+  display: block;
+  @media (min-width: 768px) {
+    content: url('/images/desktop/image-stand-out.jpg');
+  }
+}
+//SHOWCASE SECTION
+
 .showcase-container {
   display: flex;
   flex-direction: column;
@@ -163,11 +233,17 @@ main {
 }
 .graphic-background {
   background-image: url(/images/mobile/image-graphic-design.jpg);
+  @media (min-width: 768px) {
+    background-image: url(/images/desktop/image-graphic-design.jpg);
+  }
 }
 .photo-background {
   background-image: url(/images/mobile/image-photography.jpg);
+  @media (min-width: 768px) {
+    background-image: url(/images/desktop/image-photography.jpg);
+  }
 }
-
+//TESTIMONIALS-SECTION
 .testimonials-section {
   &__title {
     text-align: center;
@@ -209,13 +285,56 @@ main {
     }
   }
 }
-.paintings-section {
+//GALLERY-SECTION
+
+.gallery-section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-gap: 0;
+  width: 100%;
+  height: auto;
 }
+
+/* Dla każdego obrazka */
+.gallery-section__firstImg,
+.gallery-section__secondImg,
+.gallery-section__thirdImg,
+.gallery-section__fourthImg {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  @media (min-width: 455px) {
+    height: 350px;
+  }
+}
+
+/* Określenie pozycji obrazków */
+.gallery-section__firstImg {
+  background-image: url(/images/mobile/image-gallery-milkbottles.jpg);
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.gallery-section__secondImg {
+  background-image: url(/images/mobile/image-gallery-orange.jpg);
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.gallery-section__thirdImg {
+  background-image: url(/images/mobile/image-gallery-cone.jpg);
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.gallery-section__fourthImg {
+  background-image: url(/images/mobile/image-gallery-sugar-cubes.jpg);
+  grid-column: 2;
+  grid-row: 2;
+}
+//FOOTER
 
 .footer {
   display: flex;
@@ -256,4 +375,5 @@ main {
   justify-content: space-between;
   width: 40%;
   padding-top: 3em;
+  cursor: pointer;
 }

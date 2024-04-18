@@ -289,51 +289,15 @@ main {
 
 .gallery-section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 0;
+
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   width: 100%;
   height: auto;
-}
-
-/* Dla każdego obrazka */
-.gallery-section__firstImg,
-.gallery-section__secondImg,
-.gallery-section__thirdImg,
-.gallery-section__fourthImg {
-  width: 100%;
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  @media (min-width: 455px) {
-    height: 350px;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Określenie pozycji obrazków */
-.gallery-section__firstImg {
-  background-image: url(/images/mobile/image-gallery-milkbottles.jpg);
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.gallery-section__secondImg {
-  background-image: url(/images/mobile/image-gallery-orange.jpg);
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.gallery-section__thirdImg {
-  background-image: url(/images/mobile/image-gallery-cone.jpg);
-  grid-column: 1;
-  grid-row: 2;
-}
-
-.gallery-section__fourthImg {
-  background-image: url(/images/mobile/image-gallery-sugar-cubes.jpg);
-  grid-column: 2;
-  grid-row: 2;
-}
 //FOOTER
 
 .footer {

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap");
 /*
   1. Use a more-intuitive box-sizing model.
@@ -336,7 +335,12 @@ main {
   }
 }
 
-.showcase-container {
+.cherry-image,
+.orange-image {
+  width: 100%;
+}
+
+.showcase-section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -344,49 +348,57 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+}
+@media (min-width: 768px) {
+  .showcase-section {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.showcase-container {
+  position: relative;
+  width: 100%;
+}
+.showcase-container__description {
+  position: absolute;
+  bottom: 4em;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 7em 2em;
-  width: 100%;
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  margin: 0 1em;
+}
+@media (min-width: 1100px) {
+  .showcase-container__description {
+    margin: 0 10em;
+    bottom: 6em;
+  }
 }
 .showcase-container__title {
   font-size: 2.2rem;
   font-family: "Fraunces";
   font-weight: 700;
   color: hsl(167, 40%, 24%);
-  margin-bottom: 1em;
+  margin-bottom: 10px;
 }
 .showcase-container__text {
   font-size: 1rem;
   font-family: "Barlow", sans-serif;
   color: hsl(167, 40%, 24%);
   text-align: center;
-}
-
-.graphic-background {
-  background-image: url(/images/mobile/image-graphic-design.jpg);
-}
-@media (min-width: 768px) {
-  .graphic-background {
-    background-image: url(/images/desktop/image-graphic-design.jpg);
-  }
-}
-
-.photo-background {
-  background-image: url(/images/mobile/image-photography.jpg);
-}
-@media (min-width: 768px) {
-  .photo-background {
-    background-image: url(/images/desktop/image-photography.jpg);
-  }
 }
 
 .testimonials-section__title {
@@ -438,55 +450,14 @@ main {
 
 .gallery-section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-gap: 0;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   width: 100%;
   height: auto;
 }
-
-/* Dla każdego obrazka */
-.gallery-section__firstImg,
-.gallery-section__secondImg,
-.gallery-section__thirdImg,
-.gallery-section__fourthImg {
-  width: 100%;
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-}
-@media (min-width: 455px) {
-  .gallery-section__firstImg,
-  .gallery-section__secondImg,
-  .gallery-section__thirdImg,
-  .gallery-section__fourthImg {
-    height: 350px;
+@media (min-width: 768px) {
+  .gallery-section {
+    grid-template-columns: repeat(4, 1fr);
   }
-}
-
-/* Określenie pozycji obrazków */
-.gallery-section__firstImg {
-  background-image: url(/images/mobile/image-gallery-milkbottles.jpg);
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.gallery-section__secondImg {
-  background-image: url(/images/mobile/image-gallery-orange.jpg);
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.gallery-section__thirdImg {
-  background-image: url(/images/mobile/image-gallery-cone.jpg);
-  grid-column: 1;
-  grid-row: 2;
-}
-
-.gallery-section__fourthImg {
-  background-image: url(/images/mobile/image-gallery-sugar-cubes.jpg);
-  grid-column: 2;
-  grid-row: 2;
 }
 
 .footer {

@@ -356,6 +356,11 @@ INTRO SECTION
     text-align: left;
   }
 }
+@media (orientation: landscape) {
+  .intro-section__description-title {
+    font-size: 2rem;
+  }
+}
 .intro-section__description-text {
   font-size: 1rem;
   font-family: "Barlow", sans-serif;
@@ -369,6 +374,11 @@ INTRO SECTION
     font-size: 1.2rem;
     text-align: left;
     padding-bottom: 2em;
+  }
+}
+@media (orientation: landscape) {
+  .intro-section__description-text {
+    font-size: 1rem;
   }
 }
 .intro-section__link {

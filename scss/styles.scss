@@ -207,6 +207,9 @@ INTRO SECTION
       padding: 0.5em 0;
       text-align: left;
     }
+    @media (orientation: landscape) {
+      font-size: 2rem;
+    }
   }
   &__description-text {
     font-size: 1rem;
@@ -219,6 +222,9 @@ INTRO SECTION
       font-size: 1.2rem;
       text-align: left;
       padding-bottom: 2em;
+    }
+    @media (orientation: landscape) {
+      font-size: 1rem;
     }
   }
   &__link {

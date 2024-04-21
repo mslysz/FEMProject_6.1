@@ -126,6 +126,12 @@ HEADER SECTION
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 3em;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #3ebfff;
 }
 @media (min-width: 840px) {
   .navigation {
@@ -133,7 +139,6 @@ HEADER SECTION
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    margin-top: 2em;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -275,7 +280,7 @@ HEADER SECTION
 }
 
 .hero__title {
-  padding-top: 1em;
+  padding-top: 5em;
   letter-spacing: 5px;
   font-family: "Fraunces";
   font-weight: 900;

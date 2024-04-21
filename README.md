@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://sunny-side-ms.netlify.app/)
+- Live Site URL: [https://sunny-side-ms.netlify.app/](https://sunny-side-ms.netlify.app/)
 
 ## My process
 

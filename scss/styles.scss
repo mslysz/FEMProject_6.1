@@ -1,3 +1,9 @@
+/* 
+=================================
+GLOBAL STYLES
+=================================
+*/
+
 @import 'colors';
 @import 'fonts';
 @import 'reset';
@@ -13,7 +19,12 @@ main {
   margin: 0 auto;
   width: 100%;
 }
-//HEADER SECTION
+
+/*
+=================================
+HEADER SECTION
+=================================
+*/
 
 .header {
   display: flex;
@@ -30,22 +41,37 @@ main {
 }
 .navigation {
   display: flex;
+  // flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-between;
   padding: 3em;
+  @media (min-width: 840px) {
+    flex-direction: row;
+    margin-top: 2em;
+    justify-content: space-between;
+  }
   &__list {
     position: relative;
     background-color: $white;
+    top: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    width: 80%;
     list-style: none;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+    height: 100%;
+    @media (min-width: 840px) {
+      overflow: visible;
+      flex-direction: row;
+      width: 100%;
+      justify-content: flex-end;
+    }
   }
+
   &__list::after {
     content: '';
     position: absolute;
@@ -55,10 +81,19 @@ main {
     top: -20px;
     right: -10px;
     transform: rotate(300deg);
+    @media (min-width: 840px) {
+      display: none;
+    }
   }
   &__item {
     text-align: center;
     margin-bottom: 0.5em;
+    transition: 0.3s;
+    &:hover {
+      @media (min-width: 840px) {
+        transform: translateY(-2px);
+      }
+    }
   }
   &__link {
     display: block;
@@ -69,6 +104,16 @@ main {
     font-family: $barlow-family;
     padding: 0.4em;
     cursor: pointer;
+    @media (min-width: 840px) {
+      color: $white;
+    }
+  }
+  .logo-menu {
+    display: flex;
+    justify-content: space-between;
+    &__img {
+      height: 30px;
+    }
   }
   &__button {
     padding: 1em 2em;
@@ -82,15 +127,28 @@ main {
     font-weight: 900;
     text-align: center;
     cursor: pointer;
+    transition: 0.3s;
+    @media (min-width: 840px) {
+      background-color: $white;
+      &:hover {
+        background-color: #64c4f4;
+        color: $white;
+      }
+    }
   }
 }
+
 .active {
   overflow: visible;
   max-height: 300px;
-  padding: 5em 0;
+  padding: 1em;
+  width: 100%;
 }
 .burger-button {
   cursor: pointer;
+  @media (min-width: 840px) {
+    display: none;
+  }
 }
 .hero {
   &__title {
@@ -107,7 +165,11 @@ main {
     margin: 2em auto;
   }
 }
-//INTRO SECTION
+/* 
+=================================
+INTRO SECTION
+=================================
+*/
 
 .intro-section {
   display: flex;
@@ -128,12 +190,10 @@ main {
   &__description {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
-    padding: 2em;
+    padding: 4em 2em;
     @media (min-width: 768px) {
-      width: 50%;
-      padding: 0;
+      padding: 0 6em;
+      flex-basis: 50%;
     }
   }
   &__description-title {
@@ -144,7 +204,7 @@ main {
     color: $very-dark-blue;
     @media (min-width: 768px) {
       font-size: 2.6rem;
-      padding: 0;
+      padding: 0.5em 0;
       text-align: left;
     }
   }
@@ -154,14 +214,14 @@ main {
     font-weight: 600;
     color: $dark-grayish-blue;
     text-align: center;
+    padding-bottom: 1em;
     @media (min-width: 768px) {
       font-size: 1.2rem;
       text-align: left;
-      padding: 0;
+      padding-bottom: 2em;
     }
   }
   &__link {
-    text-align: center;
     font-size: 1rem;
     font-weight: bold;
     font-family: $fraunces-family;
@@ -169,7 +229,9 @@ main {
     text-decoration-thickness: 4px;
     text-align: center;
     color: $very-dark-blue;
-
+    @media (min-width: 765px) {
+      align-self: start;
+    }
     &--red {
       text-decoration-color: $soft-red;
     }
@@ -178,32 +240,18 @@ main {
     }
   }
 }
-.intro-link-container {
-  margin: 4em 0 1em 0;
-  @media (min-width: 768px) {
-    align-self: start;
-    margin-left: 0;
-  }
-}
-.picture-container {
-  @media (min-width: 768px) {
-    width: 50%;
-    padding: 0;
-  }
-}
-.egg-image {
-  display: block;
-  @media (min-width: 768px) {
-    content: url('/images/desktop/image-transform.jpg');
-  }
-}
+.egg-image,
 .glass-image {
-  display: block;
-  @media (min-width: 768px) {
-    content: url('/images/desktop/image-stand-out.jpg');
+  @media (min-width: 765px) {
+    flex-basis: 50%;
   }
 }
-//SHOWCASE SECTION
+/* 
+=================================
+SHOWCASE SECTION
+=================================
+*/
+
 .cherry-image,
 .orange-image {
   width: 100%;
@@ -249,20 +297,19 @@ main {
   }
 }
 
-// .graphic-background {
-//   background-image: url(/images/mobile/image-graphic-design.jpg);
-//   @media (min-width: 768px) {
-//     background-image: url(/images/desktop/image-graphic-design.jpg);
-//   }
-// }
-// .photo-background {
-//   background-image: url(/images/mobile/image-photography.jpg);
-//   @media (min-width: 768px) {
-//     background-image: url(/images/desktop/image-photography.jpg);
-//   }
-// }
 //TESTIMONIALS-SECTION
 .testimonials-section {
+  padding: 4em 0;
+  @media (min-width: 768px) {
+    padding: 4em 5em;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
   &__title {
     text-align: center;
     font-size: 1rem;
@@ -272,10 +319,12 @@ main {
     letter-spacing: 5px;
   }
   &__person {
+    flex-basis: 33%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 2em;
+
     &-image {
       width: 90px;
       border-radius: 50%;
@@ -349,13 +398,22 @@ main {
     color: $dark-cyan;
     font-family: $barlow-family;
     cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      color: $white;
+    }
   }
 }
-
 .socials {
   display: flex;
-  justify-content: space-between;
-  width: 40%;
-  padding-top: 3em;
+  justify-content: center;
+  padding-top: 1em;
   cursor: pointer;
+
+  &__img {
+    margin: 0 1em;
+    &:hover {
+      background-color: aquamarine;
+    }
+  }
 }

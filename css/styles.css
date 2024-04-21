@@ -101,8 +101,9 @@ HEADER SECTION
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 100%;
+  position: relative;
   height: 100vh;
+  width: 100%;
   background-image: url(/images/mobile/image-header.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -126,11 +127,10 @@ HEADER SECTION
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 3em;
-  position: fixed;
+  position: sticky;
   z-index: 10;
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   background-color: #3ebfff;
 }
 @media (min-width: 840px) {
